@@ -1,0 +1,23 @@
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# .NET
+**/bin/
+**/obj/
+**/.vs/
+
+# Secrets
+.env
+.env.*
+!*.example
+**/appsettings.Development.json
+
+# Certificates
+*.pfx
+*.key
+
+# Visual Studio
+*.user
+*.suo

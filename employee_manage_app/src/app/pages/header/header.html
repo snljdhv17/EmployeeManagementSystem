@@ -1,0 +1,75 @@
+<div class="dashboard-container">
+  <!-- Sidebar Panel -->
+  <aside class="sidebar" [class.collapsed]="isCollapsed">
+    <div class="brand-header">
+      <h2 *ngIf="!isCollapsed">ADMIN</h2>
+      <h2 *ngIf="isCollapsed">A</h2>
+    </div>
+    
+    <nav class="sidebar-menu">
+      @if(loggedEmpData.role == 'HR'){
+      <ul>
+        <!-- Navigation Links -->
+        <li routerLink="/dashboard" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-tachometer-alt"></i>
+            <span *ngIf="!isCollapsed">Dashboard</span>
+          </a>
+        </li>
+        <li routerLink="/new-employee/0" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-users"></i>
+            <span *ngIf="!isCollapsed">New Employee</span>
+          </a>
+        </li>
+         <li routerLink="/employees" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-file-lines"></i>
+            <span *ngIf="!isCollapsed">All Employees</span>
+          </a>
+        </li>
+        <li routerLink="/department" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-building"></i>
+            <span *ngIf="!isCollapsed">Departments</span>
+          </a>
+        </li>
+        <li routerLink="/designation" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-user-tag"></i>
+            <span *ngIf="!isCollapsed">Designations</span>
+          </a>
+        </li>
+       
+        <li routerLink="/settings" routerLinkActive="active">
+          <a>
+            <i class="fa-solid fa-gear"></i>
+            <span *ngIf="!isCollapsed">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="onLogOff()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span *ngIf="!isCollapsed">Logout</span>
+          </a>
+        </li>
+      </ul>
+    }
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper matching your class syntax -->
+  <div class="main" [class.collapsed]="isCollapsed">
+    <!-- Top Navbar Section -->
+    <div class="topbar">
+      <i class="fa-solid fa-bars toggle-btn me-3" (click)="toggleSidebar()"></i>
+      <h5 class="mb-0">Admin Dashboard</h5>
+    </div>
+
+    <!-- Viewport Component Workspace -->
+    <main class="content-body">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+

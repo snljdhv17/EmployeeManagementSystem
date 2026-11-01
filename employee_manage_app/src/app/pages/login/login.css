@@ -1,0 +1,86 @@
+/* Styling for your 'parent' container to center the layout */
+.parent {
+    background: linear-gradient(135deg, #4954a4 0%, #15a486 100%);
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Card Block element configuration */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header UI color alignment */
+.login-header {
+    background-color: #4c63e6;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.login-header h4 {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Input layout labels and checkboxes customization */
+.form-label, .form-check-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Text Input custom border colors matching original screen capture */
+.input-group-text {
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+    color: #6c757d;
+}
+
+.form-control {
+    border-color: #e0e0e0;
+    color: #333333;
+}
+
+.form-control::placeholder {
+    color: #a0a0a0;
+}
+
+/* Links and Form Utilities */
+.forgot-link {
+    color: #4c63e6;
+    font-size: 0.9rem;
+}
+
+.forgot-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Focus styles configuration */
+.form-control:focus {
+    box-shadow: none;
+    border-color: #4c63e6;
+}
+
+/* Interactive Login Submission Button matching custom utility classes */
+.btn-login {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 0;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-login:hover {
+    background-color: #0069d9;
+}

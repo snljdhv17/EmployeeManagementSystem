@@ -1,0 +1,132 @@
+
+<div class="container-fluid p-3">
+  <div class="card shadow-sm">
+
+    <!-- Header -->
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Designation Management</h5>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Reactive Form -->
+      <form [formGroup]="designationForm" (ngSubmit)="onSave()">
+
+        <div class="row g-3 align-items-end">
+
+          <!-- Department -->
+          <div class="col-md-3">
+            <label class="form-label">Department</label>
+
+            <select class="form-select"
+                    formControlName="departmentId">
+
+              <option value="" disabled>Select Department</option>
+
+              <option *ngFor="let dept of departmentList()"
+                      [value]="dept.departmentId">
+                {{ dept.departmentName }}
+              </option>
+
+            </select>
+
+            <small class="text-danger"
+              *ngIf="f['departmentId'].touched &&
+                     f['departmentId'].hasError('required')">
+              Please select a department.
+            </small>
+          </div>
+
+          <!-- Designation Name -->
+          <div class="col-md-3">
+            <label class="form-label">Designation Name</label>
+
+            <input type="text"
+                   class="form-control"
+                   formControlName="designationName"
+                   placeholder="Enter designation name">
+
+            <small class="text-danger"
+              *ngIf="f['designationName'].touched &&
+                     f['designationName'].hasError('required')">
+              Designation name is required.
+            </small>
+
+            <small class="text-danger"
+              *ngIf="f['designationName'].hasError('maxlength')">
+              Maximum 100 characters allowed.
+            </small>
+          </div>
+
+          
+
+          <!-- Buttons -->
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-success me-3">
+              {{ isEditMode ? 'Update' : 'Save' }}
+            </button>
+
+            <button type="button"
+                    class="btn btn-secondary"
+                    (click)="onReset()">
+              Reset
+            </button>
+          </div>
+
+        </div>
+      </form>
+
+      <!-- Designation Table -->
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered table-striped mb-0">
+
+          <thead class="table-dark">
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Department</th>
+              <th class="text-center">Designation Name</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of designationList(); let i = index">
+
+              <td class="text-center">{{ i + 1 }}</td>
+
+              <td class="text-center">
+                {{ item.departmentName }}
+              </td>
+
+              <td class="text-center">
+                {{ item.designationName }}
+              </td>
+
+            
+
+              <td class="text-center text-nowrap">
+                <button type="button"
+                        class="btn btn-warning btn-sm me-1"
+                        (click)="onEdit(item)">
+                  Edit
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger btn-sm"
+                        (click)="onDelete(item.designationId)">
+                  Delete
+                </button>
+              </td>
+
+            </tr>
+
+           
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+

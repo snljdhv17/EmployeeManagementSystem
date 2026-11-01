@@ -1,0 +1,75 @@
+<div class="container mt-5">
+
+  <!-- Card Wrapper -->
+  <div class="card shadow-sm border border-light-subtle rounded-3 overflow-hidden">
+    <div class="card-header bg-primary text-white py-3 px-4 border-bottom-0">
+      <h5 class="mb-0 fw-semibold text-capitalize tracking-wide">Department Management</h5>
+    </div>
+
+    <div class="card-body p-4">
+
+      <!-- Form Inputs Layout Row -->
+      <div class="row align-items-end mb-4 g-3">
+
+        <!-- Department Name Input -->
+        <div class="col-12 col-md-3">
+          <label class="form-label fw-medium text-dark small mb-2">Department Name</label>
+          <input type="text" [(ngModel)]="newDeptObj.departmentName" class="form-control py-2 text-dark border-light-subtle" placeholder="Enter department name">
+        </div>
+
+        <!-- Is Active Toggle Checkbox -->
+        <div class="col-12 col-md-2">
+          <label class="form-label d-block fw-medium text-dark small mb-2">Is Active</label>
+          <div class="form-check pt-1">
+            <input [(ngModel)]="newDeptObj.isActive" class="form-check-input border-secondary-subtle" type="checkbox" id="activeStatusCheck">
+            <label  class="form-check-label text-dark small ms-1" for="activeStatusCheck">Active</label>
+          </div>
+        </div>
+
+        <!-- Submission Controls Column -->
+        <div class="col-12 col-md-7 d-flex gap-2">
+          @if (newDeptObj.departmentId == 0) {
+            <button type="button" (click)="onSaveDept()" class="btn btn-success">Save</button>
+          } @else {
+              <button type="button" (click)="onUpdateDept()" class="btn btn-danger">Update</button>
+          }
+          
+          <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+        </div>
+
+      </div>
+
+      <!-- Department Presentation Grid -->
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered table-striped align-middle text-center mb-0 border-light-subtle">
+          <thead>
+            <tr class="table-dark text-white border-dark-subtle">
+              <th scope="col" class="py-3 fw-semibold small" style="width: 8%;">#</th>
+              <th scope="col" class="py-3 fw-semibold small" style="width: 40%;">Department Name</th>
+              <th scope="col" class="py-3 fw-semibold small" style="width: 22%;">Is Active</th>
+              <th scope="col" class="py-3 fw-semibold small" style="width: 30%;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(item of deptList(); track $index){
+            <tr>
+              <th scope="row" class="py-3 text-secondary fw-normal">{{$index+1}}</th>
+              <td class="py-3 text-dark">{{item.departmentName}}</td>
+              <td class="py-3 text-dark">{{item.isActive}}</td>
+              <td class="py-3">
+                <div class="d-flex justify-content-center gap-2">
+                  <button (click)="onEdit(item)" class="btn btn-warning btn-sm px-3 py-1 fw-medium text-dark border-0">Edit</button>
+                  <button (click)="onDelete(item.departmentId)" class="btn btn-danger btn-sm px-3 py-1 fw-medium text-white border-0">Delete</button>
+                </div>
+              </td>
+            </tr>
+        }
+            
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,112 @@
+<div class="container py-4">
+  <div class="card shadow">
+    <!-- Header Banner -->
+    <div class="card-header bg-primary text-white py-3">
+      <h5 class="mb-0"><i class="fa-solid fa-user me-2"></i>Employee Form</h5>
+    </div>
+
+    <div class="card-body px-4">
+      
+
+        <!-- 👤 Personal Information -->
+        <div class="mb-4">
+          <h6 class="text-primary fw-normal border-bottom pb-2 mb-3">Personal Information</h6>
+          <div class="row g-3">
+
+            <div class="col-md-8">
+              <label class="form-label text-muted small mb-1">Full Name</label>
+              <input type="text" [disabled]="loggedEmpData.role != 'HR'"
+              [(ngModel)]="newEmployeeObj.name" placeholder="Enter full name">
+            </div>
+          </div>
+        </div>
+
+        <!-- 📞 Contact Information -->
+        <div class="mb-4">
+          <h6 class="text-primary fw-normal border-bottom pb-2 mb-3">Contact Information</h6>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">Contact No</label>
+              <input type="text" [(ngModel)]="newEmployeeObj.contact" placeholder="Primary contact" maxlength="10">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">Alternate Contact No</label>
+              <input type="text" [(ngModel)]="newEmployeeObj.altContactNo" placeholder="Alternate contact"
+                maxlength="10">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">Email</label>
+              <input type="email" [(ngModel)]="newEmployeeObj.email" placeholder="Enter email">
+            </div>
+          </div>
+        </div>
+
+        <!-- 📍 Address Information -->
+        <div class="mb-4">
+          <h6 class="text-primary fw-normal border-bottom pb-2 mb-3">Address Information</h6>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <label class="form-label text-muted small mb-1">Address</label>
+              <textarea [disabled]="loggedEmpData.role != 'HR'" [(ngModel)]="newEmployeeObj.address" rows="2" placeholder="Enter full address"
+                maxlength="2000"></textarea>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">City</label>
+              <input [disabled]="loggedEmpData.role != 'HR'" type="text" [(ngModel)]="newEmployeeObj.city" placeholder="City">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">State</label>
+              <input [disabled]="loggedEmpData.role != 'HR'" type="text" [(ngModel)]="newEmployeeObj.state" placeholder="State">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label text-muted small mb-1">PinCode</label>
+              <input [disabled]="loggedEmpData.role != 'HR'" type="text" [(ngModel)]="newEmployeeObj.pincode" placeholder="Pincode" maxlength="6">
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ JOB INFORMATION -->
+        <div class="mb-4">
+          <h6 class="section-title text-primary fw-normal border-bottom pb-2 mb-3">Job Information</h6>
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label">Designation</label>
+              <select [disabled]="loggedEmpData.role != 'HR'" class="form-select" [(ngModel)]="newEmployeeObj.designationId" name="designationId">
+                <option selected>Select Designation</option>
+                @for (item of $designationList |async; track $index) {
+                <option [value]="item.designationId">{{item.designationName}}</option>
+                }
+                
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Role</label>
+              <select [disabled]="loggedEmpData.role != 'HR'" class="form-select" [(ngModel)]="newEmployeeObj.role" name="role">
+                <option selected>Select Role</option>
+                <option>HR</option>
+                <option>Employee</option>
+              </select>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- ⚙️ Form Action Buttons -->
+        <div class="row mt-4">
+          <div class="col-12 text-end">
+            @if(newEmployeeObj.employeeId == 0){
+            <button type="button" class="btn btn-outline-secondary me-2 px-4">Reset</button>
+            <button type="submit" (click)="onSaveEmp()" class="btn btn-primary px-4">Save Employee</button>
+            }
+            <button type="submit" (click)="onSaveEmp()" class="btn btn-warning px-4">Update Employee</button>
+          </div>
+        </div>
+
+
+     
+    </div>
+  </div>
+</div>
