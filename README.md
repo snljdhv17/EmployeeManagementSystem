@@ -7,13 +7,13 @@ This application provides a centralized interface for managing employee informat
 ## 🚀 Technologies Used
 
 ### Frontend
-- Angular (Standalone Components)
+- Angular (Standalone Components)-22
 - TypeScript
 - HTML5
-- CSS3
+- CSS
 
 ### Backend
-- ASP.NET Core Web API
+- ASP.NET Core Web API- 8
 - C#
 - Entity Framework Core
 
