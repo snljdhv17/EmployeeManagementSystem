@@ -56,7 +56,12 @@ EmployeeManageSystem/
 │   │   └── appsettings.json
 │   │
 │   └── employee.api.sln
-│
+││
+├── screenshots/
+│   ├── dashboard.png
+│   ├── employee-list.png
+│   ├── employee-form.png
+│   └── swagger-api.png
 ├── .gitignore
 └── README.md
 ```
@@ -147,16 +152,27 @@ Make sure the API base URL and CORS configuration match your local backend setup
 
 ## 📸 Screenshots
 
-Add screenshots of your application here to showcase its interface.
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
 
-Suggested screenshots:
+### Employee List
+![Employee List](screenshots/employee-list.png)
 
-- Login Page
-- Dashboard
-- Employee List
-- Employee Form
-- Department Management
-- Designation Management
+### Employee Form
+![Employee Form](screenshots/employee-form.png)
+
+### Department Management
+![Department Management](screenshots/department.png)
+
+### Designation Management
+![Designation Management](screenshots/designation.png)
+
+### Backend API - Swagger
+
+![Swagger API](screenshots/swagger-api-dept-desig.png)
+### Backend API - Swagger
+
+![Swagger API](screenshots/swagger-api-employeeMaster.png)
 
 ## 👨‍💻 Author
 
