@@ -1,1 +1,97 @@
-<p>dashboard works!</p>
+
+<div class="dashboard-page">
+
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <div>
+      <h2>Welcome Back, HR!</h2>
+      <p>Here's an overview of your employee management system.</p>
+    </div>
+
+    <button class="add-btn" routerLink="/new-employee/0">
+      <i class="fa-solid fa-plus"></i>
+      Add Employee
+    </button>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-grid">
+
+    <div class="dashboard-card employees-card"
+         routerLink="/employees">
+      <div class="card-icon">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <div class="card-info">
+        <h3>Total Employees</h3>
+        <h2>{{ totalEmployees }}</h2>
+        <p>View employee records</p>
+      </div>
+    </div>
+
+    <div class="dashboard-card department-card"
+         routerLink="/department">
+      <div class="card-icon">
+        <i class="fa-solid fa-building"></i>
+      </div>
+      <div class="card-info">
+        <h3>Departments</h3>
+        <h2>{{ totalDepartments }}</h2>
+        <p>Manage departments</p>
+      </div>
+    </div>
+
+    <div class="dashboard-card designation-card"
+         routerLink="/designation">
+      <div class="card-icon">
+        <i class="fa-solid fa-user-tag"></i>
+      </div>
+      <div class="card-info">
+        <h3>Designations</h3>
+        <h2>{{ totalDesignations }}</h2>
+        <p>Manage designations</p>
+      </div>
+    </div>
+
+    <div class="dashboard-card new-employee-card"
+         routerLink="/new-employee/0">
+      <div class="card-icon">
+        <i class="fa-solid fa-user-plus"></i>
+      </div>
+      <div class="card-info">
+        <h3>New Employee</h3>
+        <h2>Add</h2>
+        <p>Create employee profile</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <h3>Quick Actions</h3>
+
+    <div class="action-buttons">
+      <button routerLink="/new-employee/0">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Employee
+      </button>
+
+      <button routerLink="/employees">
+        <i class="fa-solid fa-file-lines"></i>
+        View Employees
+      </button>
+
+      <button routerLink="/department">
+        <i class="fa-solid fa-building"></i>
+        Departments
+      </button>
+
+      <button routerLink="/designation">
+        <i class="fa-solid fa-user-tag"></i>
+        Designations
+      </button>
+    </div>
+  </div>
+
+</div>
